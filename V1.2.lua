@@ -9,7 +9,7 @@ local isFight = false
 
 local TargetDistance = 60
 local FightDistance = 19
-local ExtraDistance = 10
+local ExtraDistance = 12
 
 local PlayersOnServer = #game:GetService("Players"):GetPlayers()
 
