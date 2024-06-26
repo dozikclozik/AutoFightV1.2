@@ -9,7 +9,7 @@ local isFight = false
 
 local TargetDistance = 60
 local FightDistance = 19
-local ExtraDistance = 12
+local ExtraDistance = 10
 
 local PlayersOnServer = #game:GetService("Players"):GetPlayers()
 
@@ -97,7 +97,7 @@ game:GetService("RunService").Stepped:Connect(function()
 				if magnitude <= ExtraDistance and isTarget and EquippedTool then
 					spawn(function()
 						EquippedTool:Activate()
-						Hrp:PivotTo(PlayerCharacter.PrimaryPart.CFrame * CFrame.new(nil, nil, -6))
+						Hrp:PivotTo(PlayerCharacter.PrimaryPart.CFrame * CFrame.new(nil, nil, 6))
 						print("EXTRA ACTIVATED!!!")
 					end)
 				end
