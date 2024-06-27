@@ -97,7 +97,7 @@ game:GetService("RunService").Stepped:Connect(function()
 				if magnitude <= ExtraDistance and isTarget and EquippedTool then
 					spawn(function()
 						EquippedTool:Activate()
-						Hrp:PivotTo(PlayerCharacter.PrimaryPart.CFrame * CFrame.new(nil, nil, 4))
+						Hrp:PivotTo(firstPlayerLocation.Character.PrimaryPart.CFrame * CFrame.new(nil, nil, 4))
 						print("EXTRA ACTIVATED!!!")
 					end)
 				end
