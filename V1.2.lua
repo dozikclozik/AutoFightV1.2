@@ -94,12 +94,14 @@ game:GetService("RunService").Stepped:Connect(function()
 				local magnitude = (Hrp.Position - HrpPlayer.Position).Magnitude
 				local unit = (Hrp.Position - HrpPlayer.Position).unit
 				
+				spawn(function()
 				if firstPlayerLocation.Character:FindFirstChildOfClass("Humanoid").Health <= 0 then
 					firstPlayerLocation = nil
 				end
+				end)
 				
 				humanoid:GetPropertyChangedSignal("Health"):Connect(function()
-				if isTarget and EquippedTool then
+				if isTarget and EquippedTool and firstPlayerLocation ~= nil then
 					spawn(function()
 						EquippedTool:Activate()
 						Hrp:PivotTo(firstPlayerLocation.Character.PrimaryPart.CFrame * CFrame.new(nil, nil, 4))
