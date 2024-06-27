@@ -94,13 +94,15 @@ game:GetService("RunService").Stepped:Connect(function()
 				local magnitude = (Hrp.Position - HrpPlayer.Position).Magnitude
 				local unit = (Hrp.Position - HrpPlayer.Position).unit
 				
-				if magnitude <= ExtraDistance and isTarget and EquippedTool then
+				humanoid:GetPropertyChangedSignal("Health"):Connect(function()
+				if isTarget and EquippedTool then
 					spawn(function()
 						EquippedTool:Activate()
 						Hrp:PivotTo(firstPlayerLocation.Character.PrimaryPart.CFrame * CFrame.new(nil, nil, 4))
 						print("EXTRA ACTIVATED!!!")
 					end)
 				end
+				end)
 				
 				if magnitude <= TargetDistance and not isTarget and isFight ~= true then
 					isTarget = true
