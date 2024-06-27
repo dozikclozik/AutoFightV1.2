@@ -94,6 +94,10 @@ game:GetService("RunService").Stepped:Connect(function()
 				local magnitude = (Hrp.Position - HrpPlayer.Position).Magnitude
 				local unit = (Hrp.Position - HrpPlayer.Position).unit
 				
+				if firstPlayerLocation.Character:FindFirstChildOfClass("Humanoid").Health <= 0 then
+					firstPlayerLocation = nil
+				end
+				
 				humanoid:GetPropertyChangedSignal("Health"):Connect(function()
 				if isTarget and EquippedTool then
 					spawn(function()
